@@ -1,8 +1,8 @@
 public class Inventario {
-    private ObjetoJuego[] objetos = new ObjetoJuego[5];
+    private Objeto[] objetos = new Objeto[5];
     private int cantidad = 0;
 
-    public void agregarObjeto(ObjetoJuego objeto) {
+    public void agregarObjeto(Objeto objeto) {
         if (cantidad < objetos.length) {
             objetos[cantidad] = objeto;
             cantidad++;
