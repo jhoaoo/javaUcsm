@@ -63,6 +63,8 @@ public class Coche {
         System.out.println("El coche " + modelo + " se ha apagado.");
     }
 
+    public String getColor() { return color; }
+    public void setColor(String color) { this.color = color; }
     public String getMarca() { return marca; }
     public void setMarca(String marca) { this.marca = marca; }
     public String getModelo() { return modelo; }
@@ -76,4 +78,5 @@ public class Coche {
     public double getPrecio() { return precio; }
     public void setPrecio(double precio) { this.precio = precio; }
     public boolean isEnMarcha() { return enMarcha; }
+    public void setEnMarcha(boolean enMarcha) { this.enMarcha = enMarcha; }
 }
