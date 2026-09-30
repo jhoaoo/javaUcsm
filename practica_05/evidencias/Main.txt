@@ -1,0 +1,5 @@
+(Primero: Java, Segundo: 17)
+(Primero: 3.5, Segundo: true)
+(Primero: Ana (20 años), Segundo: 101)
+Personas distintas, mismos datos: true
+hashCode coherente: true

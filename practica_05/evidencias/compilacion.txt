@@ -1,0 +1,3 @@
+Compilador: javac 17.0.20
+Opciones: -encoding UTF-8 -Xlint:all -Werror
+Resultado: compilación correcta, sin advertencias.

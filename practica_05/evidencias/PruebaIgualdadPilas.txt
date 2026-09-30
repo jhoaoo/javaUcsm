@@ -1,0 +1,10 @@
+A: [10, 20, 30]; capacidad=3
+B: [10, 20, 30]; capacidad=8
+Mismos valores y orden: true
+Orden distinto: false
+Tamaño distinto: false
+Comparación con null: false
+Dos pilas vacías: true
+Pilas con null: true
+Después: A=[10, 20, 30]; B=[10, 20, 30]
+Tope conservado A/B: 30/30

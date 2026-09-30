@@ -1,0 +1,13 @@
+int 5 y 5 (autoboxing): true
+double 2.5 y 2.5: true
+char A y A: true
+boolean true y false: false
+Integer 1000 y 1000: true
+String de igual contenido: true
+Misma referencia Object: true
+Dos Object diferentes: false
+null y null: true
+null y Java: false
+Java y null: false
+Integer 5 y Double 5.0: false
+Versión literal con null: NullPointerException

@@ -1,0 +1,2 @@
+RESULTADO: 57/57 verificaciones correctas.
+Cobertura: intervalos, pilas, igualdad, pares, contenedor y límites genéricos.

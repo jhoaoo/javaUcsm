@@ -1,0 +1,4 @@
+Par inicial: (Primero: Java, Segundo: 17)
+getPrimero(): Java
+getSegundo(): 17
+Después de los setters: (Primero: Lenguajes de Programación III, Segundo: 5)

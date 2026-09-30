@@ -1,0 +1,7 @@
+A: (Primero: Java, Segundo: 17)
+B: (Primero: Java, Segundo: 17)
+Mismos valores: true
+Segundo distinto: false
+Otro par null: false
+Componentes null iguales: true
+Valores invertidos: false

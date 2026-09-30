@@ -1,0 +1,9 @@
+Inventario del laboratorio:
+(Primero: Router, Segundo: 4)
+(Primero: Switch, Segundo: 8)
+(Primero: Punto de acceso, Segundo: 6)
+obtenerPar(1): (Primero: Switch, Segundo: 8)
+Switch actualizado: (Primero: Switch, Segundo: 10)
+Total de pares devueltos: 3
+Pares internos después de limpiar copia: 3
+Índice 8: IndexOutOfBoundsException controlada

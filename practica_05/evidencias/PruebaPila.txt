@@ -1,0 +1,10 @@
+Pila [fondo -> tope]: [10, 20, 30]
+contains(20): true
+contains(99): false
+Después de buscar: [10, 20, 30]; tamaño=3
+ExcepcionPilaLlena: No se puede insertar: 40
+Extracción LIFO: 30, 20, 10
+ExcepcionPilaVacia: No se puede extraer de una pila vacía
+Pila String: [Java, null]
+contains(null): true
+Pila Double: [1.1, 2.2]

@@ -1,0 +1,7 @@
+duplicar(7): 14.0
+maximo(4, 9): 9
+maximo(Ana, Luis): Luis
+Primero como Integer: 1
+Wildcard ?: 1 2 3 
+Suma con extends: 6.0
+Inserción con super: [10]
