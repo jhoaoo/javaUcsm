@@ -1,0 +1,109 @@
+Evidencia de ejecución — Guía 05 — 01/10/2026
+Entorno: Java 21. Compilación UTF-8 y ejecución completa repetidas con éxito.
+Los resultados siguientes provienen de los programas existentes en practica_05.
+
+[Verificacion]
+RESULTADO: 57/57 verificaciones correctas.
+Cobertura: intervalos, pilas, igualdad, pares, contenedor y límites genéricos.
+
+[actividades.ImprimirArreglo]
+Integer completo:
+1 2 3 4 5 6 
+Intervalo [1, 3]:
+2 3 4 
+Elementos impresos: 3
+Double completo:
+1.1 2.2 3.3 4.4 5.5 6.6 7.7 
+Intervalo [1, 3]:
+2.2 3.3 4.4 
+Elementos impresos: 3
+Character completo:
+H O L A 
+Intervalo [1, 3]:
+O L A 
+Elementos impresos: 3
+InvalidSubscriptException: Intervalo inválido: [-1, 2]
+InvalidSubscriptException: Intervalo inválido: [0, 6]
+InvalidSubscriptException: Intervalo inválido: [2, 2]
+InvalidSubscriptException: Intervalo inválido: [3, 1]
+
+[actividades.PruebaPila]
+Pila [fondo -> tope]: [10, 20, 30]
+contains(20): true
+contains(99): false
+Después de buscar: [10, 20, 30]; tamaño=3
+ExcepcionPilaLlena: No se puede insertar: 40
+Extracción LIFO: 30, 20, 10
+ExcepcionPilaVacia: No se puede extraer de una pila vacía
+Pila String: [Java, null]
+contains(null): true
+Pila Double: [1.1, 2.2]
+
+[actividades.IgualGenerico]
+int 5 y 5 (autoboxing): true
+double 2.5 y 2.5: true
+char A y A: true
+boolean true y false: false
+Integer 1000 y 1000: true
+String de igual contenido: true
+Misma referencia Object: true
+Dos Object diferentes: false
+null y null: true
+null y Java: false
+Java y null: false
+Integer 5 y Double 5.0: false
+Versión literal con null: NullPointerException
+
+[actividades.PruebaIgualdadPilas]
+A: [10, 20, 30]; capacidad=3
+B: [10, 20, 30]; capacidad=8
+Mismos valores y orden: true
+Orden distinto: false
+Tamaño distinto: false
+Comparación con null: false
+Dos pilas vacías: true
+Pilas con null: true
+Después: A=[10, 20, 30]; B=[10, 20, 30]
+Tope conservado A/B: 30/30
+
+[propuestos.PruebaAccesoresPar]
+Par inicial: (Primero: Java, Segundo: 17)
+getPrimero(): Java
+getSegundo(): 17
+Después de los setters: (Primero: Lenguajes de Programación III, Segundo: 5)
+
+[propuestos.PruebaPar]
+A: (Primero: Java, Segundo: 17)
+B: (Primero: Java, Segundo: 17)
+Mismos valores: true
+Segundo distinto: false
+Otro par null: false
+Componentes null iguales: true
+Valores invertidos: false
+
+[propuestos.Main]
+(Primero: Java, Segundo: 17)
+(Primero: 3.5, Segundo: true)
+(Primero: Ana (20 años), Segundo: 101)
+Personas distintas, mismos datos: true
+hashCode coherente: true
+
+[propuestos.PruebaContenedor]
+Inventario del laboratorio:
+(Primero: Router, Segundo: 4)
+(Primero: Switch, Segundo: 8)
+(Primero: Punto de acceso, Segundo: 6)
+obtenerPar(1): (Primero: Switch, Segundo: 8)
+Switch actualizado: (Primero: Switch, Segundo: 10)
+Total de pares devueltos: 3
+Pares internos después de limpiar copia: 3
+Índice 8: IndexOutOfBoundsException controlada
+
+[cuestionario.EjemplosGenericos]
+duplicar(7): 14.0
+maximo(4, 9): 9
+maximo(Ana, Luis): Luis
+Primero como Integer: 1
+Wildcard ?: 1 2 3 
+Suma con extends: 6.0
+Inserción con super: [10]
