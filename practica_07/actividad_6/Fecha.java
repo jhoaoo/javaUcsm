@@ -1,0 +1,21 @@
+import java.io.Serializable;
+
+public class Fecha implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private int dia;
+    private int mes;
+    private int anio;
+
+    public Fecha(int dia, int mes, int anio) {
+        // LocalDate valida que la fecha exista.
+        java.time.LocalDate.of(anio, mes, dia);
+        this.dia = dia;
+        this.mes = mes;
+        this.anio = anio;
+    }
+
+    @Override
+    public String toString() {
+        return dia + "/" + mes + "/" + anio;
+    }
+}

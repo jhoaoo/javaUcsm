@@ -1,0 +1,2 @@
+1;Cuaderno;8.5
+2;Lapicero;2.0
