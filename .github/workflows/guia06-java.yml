@@ -30,5 +30,5 @@ jobs:
           printf '0\n' | java -cp practica_06/ejercicio_1 Main
           printf '0\n' | java -cp practica_06/ejercicio_2 Main
           printf '0\n' | java -cp practica_06/ejercicio_3 Main
-          printf '0\n' | java -cp practica_06/ejercicio_4 Main
+          printf '1\n1\n1\n1\n1\n' | java -cp practica_06/ejercicio_4 Main
           printf '0\n' | java -cp practica_06/ejercicio_5 Main
