@@ -1,68 +1,69 @@
 import javax.swing.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         JFileChooser selector = new JFileChooser();
-        selector.setDialogTitle("Seleccione un archivo de texto");
         while (true) {
-            if (selector.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) {
-                System.out.println("Selección cancelada."); return;
-            }
-            Path archivo = selector.getSelectedFile().toPath();
-            if (!Files.isRegularFile(archivo) || !Files.isReadable(archivo)) {
-                JOptionPane.showMessageDialog(null, "Debe seleccionar un archivo legible.");
+            if (selector.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) return;
+
+            File archivo = selector.getSelectedFile();
+            if (!archivo.isFile() || !archivo.canRead()) {
+                JOptionPane.showMessageDialog(null, "Escoge un archivo que se pueda leer.");
                 continue;
             }
             try {
-                analizar(archivo);
+                contarPalabras(archivo);
                 break;
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Error de lectura: " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "No se pudo leer: " + e.getMessage());
             }
         }
     }
-    private static void analizar(Path archivo) throws IOException {
-        long lineas = 0, palabras = 0, caracteres = 0;
-        Map<String, Integer> frecuencias = new HashMap<>();
-        try (BufferedReader lector = Files.newBufferedReader(archivo, StandardCharsets.UTF_8)) {
+
+    static void contarPalabras(File archivo) throws IOException {
+        int lineas = 0, palabras = 0, caracteres = 0;
+        Map<String, Integer> frecuencia = new HashMap<>();
+
+        try (BufferedReader lector = new BufferedReader(
+                new FileReader(archivo, StandardCharsets.UTF_8))) {
             String linea;
             while ((linea = lector.readLine()) != null) {
                 lineas++;
-                caracteres += linea.codePointCount(0, linea.length());
+                caracteres += linea.length();
                 StringBuilder palabra = new StringBuilder();
-                for (int i = 0; i < linea.length();) {
-                    int cp = linea.codePointAt(i);
-                    if (Character.isLetterOrDigit(cp)) {
-                        palabra.appendCodePoint(Character.toLowerCase(cp));
+
+                for (int i = 0; i <= linea.length(); i++) {
+                    char letra = i < linea.length() ? linea.charAt(i) : ' ';
+                    if (Character.isLetterOrDigit(letra)) {
+                        palabra.append(Character.toLowerCase(letra));
                     } else if (palabra.length() > 0) {
-                        palabras++;
                         String texto = palabra.toString();
-                        frecuencias.put(texto, frecuencias.getOrDefault(texto, 0) + 1);
+                        frecuencia.put(texto, frecuencia.getOrDefault(texto, 0) + 1);
+                        palabras++;
                         palabra.setLength(0);
                     }
-                    i += Character.charCount(cp);
-                }
-                if (palabra.length() > 0) {
-                    palabras++;
-                    String texto = palabra.toString();
-                    frecuencias.put(texto, frecuencias.getOrDefault(texto, 0) + 1);
                 }
             }
         }
-        System.out.println("Archivo: " + archivo.toAbsolutePath());
+
         System.out.println("Total de líneas: " + lineas);
         System.out.println("Total de palabras: " + palabras);
-        System.out.println("Total de caracteres (sin saltos): " + caracteres);
-        System.out.printf(Locale.US, "Promedio de palabras por línea: %.2f%n", lineas == 0 ? 0 : (double) palabras / lineas);
+        System.out.println("Total de caracteres: " + caracteres);
+        double promedio = lineas == 0 ? 0 : (double) palabras / lineas;
+        System.out.printf("Promedio de palabras por línea: %.2f%n", promedio);
         System.out.println("Palabras más frecuentes:");
-        frecuencias.entrySet().stream()
-            .sorted(Comparator.<Map.Entry<String, Integer>>comparingInt(Map.Entry::getValue).reversed()
-                .thenComparing(Map.Entry::getKey))
-            .limit(10)
-            .forEach(e -> System.out.println(e.getKey() + " : " + e.getValue()));
+
+        for (int i = 0; i < 10 && !frecuencia.isEmpty(); i++) {
+            String mayor = null;
+            for (String palabra : frecuencia.keySet()) {
+                if (mayor == null || frecuencia.get(palabra) > frecuencia.get(mayor)) {
+                    mayor = palabra;
+                }
+            }
+            System.out.println(mayor + ": " + frecuencia.remove(mayor));
+        }
     }
 }
